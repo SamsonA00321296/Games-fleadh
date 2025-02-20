@@ -3,18 +3,29 @@ using UnityEngine;
 
 namespace Planet_stuff
 {
+    
+
     public class PlanetHookable : MonoBehaviour
     {
+
+        public HookShot hookshot;
+
+
         void OnTriggerEnter2D(Collider2D other)
         {
+            Debug.Log(other);
+
             if (other.CompareTag("Hook"))
             {
                 Debug.Log($"Planet detected hook: {other.gameObject.name}");
                 AttachHook(other.gameObject);
-                
-                HookShot hookshot = other.gameObject.GetComponent<HookShot>();
-                if (hookshot)
+
+                // Gets the script in the hooks parent (The player) to flag the ship as attached
+                hookshot = other.gameObject.GetComponentInParent<HookShot>();        //GetComponent<HookShot>();
+
+                if (hookshot != null)
                 {
+                    Debug.Log("Plannet Snagged!");
                     HookShot.isAttached = true;
                 }
             }
