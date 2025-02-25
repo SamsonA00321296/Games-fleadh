@@ -24,7 +24,7 @@ namespace Player_Scripts
     
         [Header("Scripts")]
     
-        public CircularPath circularPath; // a reference to the circular path script, the one used for the manual player orbit
+        //public CircularPath circularPath; // a reference to the circular path script, the one used for the manual player orbit
     
         [Header("References")]
     
@@ -88,6 +88,7 @@ namespace Player_Scripts
                 PlayerSaveData.currentPower -= boostcost;
                 _isBoosting = true;
                 
+                /*
                 //this basically lets you  break out of the orbit started in the circluar path script and will turn back on the gravity
                 if (circularPath && pointEffector)
                 {
@@ -97,6 +98,7 @@ namespace Player_Scripts
                         pointEffector.forceMagnitude = -100f;
                     }
                 }
+                */
                 // starts a timer to turn the isboosting variable back off
                 StartCoroutine(StopBoost());
             }
@@ -109,6 +111,7 @@ namespace Player_Scripts
             _isBoosting = false;
         }
 
+        /*
         public void GoOrbit()
         {
             // this basically just starts the orbit from circular path, its only here because i was testing it initially on a keybind, can be moved if you care, i dont
@@ -119,6 +122,7 @@ namespace Player_Scripts
                 pointEffector.forceMagnitude = 0f;
             }
         }
+        */
         
     }
 }

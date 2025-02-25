@@ -19,7 +19,7 @@ namespace Gravity_and_orbit_scripts
         {
             if (other.name.Equals(target.name))
             {
-                player.GoOrbit();
+                //player.GoOrbit();
             }
         }
     
