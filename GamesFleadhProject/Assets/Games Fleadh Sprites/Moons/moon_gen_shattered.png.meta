@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      moon_gen_shattered_0: -8591728173155083803
+      moon_gen_shattered_1: 2753119953724280001
+      moon_gen_shattered_2: -7956053231540251464
+      moon_gen_shattered_3: -651745564650618762
+      moon_gen_shattered_4: 1626470559577648654
+      moon_gen_shattered_5: 1855429490855992474
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

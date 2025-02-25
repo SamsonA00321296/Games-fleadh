@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fish_hook_PNG26-1789576975_0: -602570214861810787
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
