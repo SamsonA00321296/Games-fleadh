@@ -7,6 +7,8 @@ public class ShipSpikeControls : MonoBehaviour
 
     public float chainCooldown = 0.5f;
 
+    public float chainRetractSpeed = 0;
+
     // Spike & chain prefab
     public GameObject SpikePrefab;
 
@@ -38,22 +40,20 @@ public class ShipSpikeControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void FixedUpdate()
-    {
+        // checks if the spike should be out, and if there is a spike
         if (!spikeOut && spikeAndChain != null)
         {
+            // Moves each chain piece towards the ships center
             foreach (Transform child in spikeAndChain.transform)
             {
-                child.position = Vector3.MoveTowards(spikeAndChain.transform.position, shipTransform.position, 0.1f * Time.deltaTime);
+                child.position = Vector3.MoveTowards(child.transform.position, shipTransform.position, (chainRetractSpeed * Time.deltaTime));
             }
         }
     }
 
     void OnSpike()
     {
+        // If the player can spike, create spike prefab object
         if (canSpike)
         {
             Instantiate(SpikePrefab, gameObject.transform.parent);
@@ -62,6 +62,7 @@ public class ShipSpikeControls : MonoBehaviour
             spikeOut = true;
             canSpike = false;
         }
+        // If not, check if the spike is out. If so queue deletion and start retracting
         else if (spikeOut)
         {
             spikeOut = false;
@@ -69,6 +70,8 @@ public class ShipSpikeControls : MonoBehaviour
         }
         
     }
+
+    // Destroys the spike and chain after chain-cooldown time
     IEnumerator DestroySpike()
     {
         yield return new WaitForSeconds(chainCooldown);

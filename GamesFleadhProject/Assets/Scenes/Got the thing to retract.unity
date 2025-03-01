@@ -874,7 +874,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ff4b276ad93348349b5cfa6360781865, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1013,6 +1013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chainCooldown: 0.5
+  chainRetractSpeed: 7
   SpikePrefab: {fileID: 2544930820386945846, guid: 6ed407efd44bd164b9d903b96e39e412, type: 3}
 --- !u!1 &572683566
 GameObject:
