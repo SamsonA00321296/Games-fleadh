@@ -1,84 +1,121 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ShipControls : MonoBehaviour
 {
-
-
-    // Normalized vector repersenting the direction a player should be facing
+    // Normalized vector representing the direction a player should be facing
     Vector2 normalizedDirection;
 
-    // Parent rigidbody
+    // Parent Rigidbody2D and Transform
     Rigidbody2D shipRigidbody;
-
-    // Parent Transform
     Transform parentTransform;
 
     // Deadzone for ship movement
     public float deadZone = 0.1f;
 
-    // Ships thrustForce
-    public float thrustForce = 5;
-
-    // Boost Mulitplier
+    // Ship's thrust force and boost multiplier
+    public float thrustForce = 5f;
     public float boostMultiplier = 1.5f;
     public bool canBoost = true;
 
-    // Used to hold various actions
+    // Input actions
     InputAction flyAction;
     InputAction boostAction;
 
-    // Exspected Z rotation of the ship
-    float zRotation = 0;
+    // Expected Z rotation based on player input
+    float zRotation = 0f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Additional rotation offset for shaking effect
+    float shakeOffset = 0f;
+
+    // Used to disable movement when hit by a bullet
+    public bool isShot;
+
+    // Team assignment to avoid friendly fire
+    public int teamID;
+
+    // Shake parameters
+    public float shakeDuration = 3f; // Shake for one second
+    public float shakeMagnitude = 10f; // Maximum degrees to shake
+    public float shakeFrequency = 20f; // How fast to oscillate
+
     void Start()
     {
-        parentTransform = gameObject.GetComponent<Transform>();
-        shipRigidbody = gameObject.GetComponent<Rigidbody2D>();
+        parentTransform = GetComponent<Transform>();
+        shipRigidbody = GetComponent<Rigidbody2D>();
 
         // Find the action for flying and boosting
         flyAction = InputSystem.actions.FindAction("Fly");
         boostAction = InputSystem.actions.FindAction("BoostFly");
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-        parentTransform.rotation = (Quaternion.Euler(new Vector3(0,0,zRotation)));
+        // Apply the base rotation plus any shake offset.
+        parentTransform.rotation = Quaternion.Euler(new Vector3(0, 0, zRotation + shakeOffset));
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        if (boostAction.IsPressed() && canBoost)
+        // Only apply movement forces if not shot.
+        if (!isShot)
         {
-            shipRigidbody.AddForce(transform.up * thrustForce * boostMultiplier);
-        }
-        else if (flyAction.IsPressed())
-        {
-            shipRigidbody.AddForce(transform.up * thrustForce);
-            //Debug.Log("FLYING!");
+            if (boostAction.IsPressed() && canBoost)
+            {
+                shipRigidbody.AddForce(transform.up * thrustForce * boostMultiplier);
+            }
+            else if (flyAction.IsPressed())
+            {
+                shipRigidbody.AddForce(transform.up * thrustForce);
+            }
         }
     }
 
-    // Yes ik it would make more sense to use OnLook
+    // Update the ship's facing direction based on input.
     void OnMove(InputValue directionLooking)
     {
-
-        // Only pull & process the direction looking vector whenever its magnetude is greater then 0.1
-        // this reperensent the joystick being moved a miniscule amount
-        // This avoids issues with the joystick boundcing back, and doesnt screw up the ships rotation
-        // when joystick is idle
-
-        if (directionLooking.Get<Vector2>().magnitude > deadZone)
+        Vector2 direction = directionLooking.Get<Vector2>();
+        if (direction.magnitude > deadZone)
         {
-            normalizedDirection = directionLooking.Get<Vector2>().normalized;
-
-            // Finds the angle between positive y-axis, and vector representing where the player is looking
-            zRotation = Vector2.SignedAngle(new Vector2(0, 1), normalizedDirection);
-
-            //Debug.Log(normalizedDirection);
+            normalizedDirection = direction.normalized;
+            // Calculate the angle between the positive Y-axis and the direction vector.
+            zRotation = Vector2.SignedAngle(Vector2.up, normalizedDirection);
         }
+    }
+
+    // When colliding with a bullet, disable movement and start the shake effect.
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Bullet"))
+        {
+            if (!isShot)
+            {
+                StartCoroutine(HitCooldown());
+                
+            }
+        }
+    }
+
+    // Coroutine that disables movement for 3 seconds and shakes the ship for the first second.
+    private IEnumerator HitCooldown()
+    {
+        isShot = true;
+        float elapsed = 0f;
+
+        // Shake the ship for shakeDuration seconds.
+        while (elapsed < shakeDuration)
+        {
+            // Using a sine wave to oscillate the shake offset.
+            shakeOffset = Mathf.Sin(elapsed * shakeFrequency) * shakeMagnitude;
+            elapsed += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        // Reset the shake offset.
+        shakeOffset = 0f;
+
+        // Wait out the remainder of the 3-second cooldown.
+        yield return new WaitForSeconds(3f - shakeDuration);
+        isShot = false;
     }
 }
