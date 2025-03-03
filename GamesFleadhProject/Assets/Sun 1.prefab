@@ -261,11 +261,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c4f72410613084eb538efac3ea89c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbitSpeed: -0.01
-  sunCenterPivot: {fileID: 1129365504302800800}
-  centerSun: {fileID: 24914510452435439}
-  endingPosition: {x: 4, y: 0, z: 0}
-  transitionTime: 180
+  orbitalRotationalSpeed: 0
+  systemCenterPivot: {fileID: 0}
+  planetEndingPosition: {x: 0, y: 0, z: 0}
+  planetRotationTime: 180
 --- !u!1 &1605854486638636350
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +378,9 @@ MonoBehaviour:
   minMoonsPerQuadrant: 3
   maxMoonsPerQuadrant: 5
   moon: {fileID: 7572981390553503589}
+  GoldMoon: {fileID: 0}
+  outerMoonsParent: {fileID: 0}
+  moonGoldChance: 10
 --- !u!114 &6330071872043398539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +396,9 @@ MonoBehaviour:
   minMoonsPerQuadrant: 2
   maxMoonsPerQuadrant: 3
   moon: {fileID: 3371264641395619771}
+  GoldMoon: {fileID: 0}
+  MiddleMoonsParent: {fileID: 0}
+  moonGoldChance: 20
 --- !u!114 &7512853405229006329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,6 +414,9 @@ MonoBehaviour:
   minMoonsPerQuadrant: 1
   maxMoonsPerQuadrant: 2
   moon: {fileID: 4054241217409967374}
+  GoldMoon: {fileID: 0}
+  InnerMoonsParent: {fileID: 0}
+  moonGoldChance: 30
 --- !u!1 &4976041010213692867
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,11 +648,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c4f72410613084eb538efac3ea89c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbitSpeed: 0.01
-  sunCenterPivot: {fileID: 1129365504302800800}
-  centerSun: {fileID: 24914510452435439}
-  endingPosition: {x: -5, y: 0, z: 0}
-  transitionTime: 180
+  orbitalRotationalSpeed: 0
+  systemCenterPivot: {fileID: 0}
+  planetEndingPosition: {x: 0, y: 0, z: 0}
+  planetRotationTime: 180
 --- !u!1001 &501521836829154214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -658,6 +665,18 @@ PrefabInstance:
       value: MiddleMoons
       objectReference: {fileID: 0}
     - target: {fileID: 6250140775965317399, guid: c89bf8526be5196458ddd57d93f738e9, type: 3}
+      propertyPath: sunPivotObject
+      value: 
+      objectReference: {fileID: 1129365504302800800}
+    - target: {fileID: 6528812122469609074, guid: c89bf8526be5196458ddd57d93f738e9, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 34.856415
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528812122469609074, guid: c89bf8526be5196458ddd57d93f738e9, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 6.6237173
+      objectReference: {fileID: 0}
+    - target: {fileID: 6822117918265429627, guid: c89bf8526be5196458ddd57d93f738e9, type: 3}
       propertyPath: sunPivotObject
       value: 
       objectReference: {fileID: 1129365504302800800}
@@ -732,6 +751,14 @@ PrefabInstance:
       propertyPath: rotationalSpeed
       value: -5
       objectReference: {fileID: 0}
+    - target: {fileID: 95924238131679839, guid: 8e510aa11aeadc44ab14bfcf5a1fd181, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 25.856415
+      objectReference: {fileID: 0}
+    - target: {fileID: 95924238131679839, guid: 8e510aa11aeadc44ab14bfcf5a1fd181, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 3.6237173
+      objectReference: {fileID: 0}
     - target: {fileID: 3224387134246071580, guid: 8e510aa11aeadc44ab14bfcf5a1fd181, type: 3}
       propertyPath: m_Name
       value: InnerMoon
@@ -776,6 +803,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6388973255760193649, guid: 8e510aa11aeadc44ab14bfcf5a1fd181, type: 3}
+      propertyPath: sunPivotObject
+      value: 
+      objectReference: {fileID: 1129365504302800800}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -806,6 +837,18 @@ PrefabInstance:
     - target: {fileID: 627317368783714363, guid: dd48c9fe2563ef64e975e0a95cee32e2, type: 3}
       propertyPath: m_Name
       value: OuterMoons
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326064148763588024, guid: dd48c9fe2563ef64e975e0a95cee32e2, type: 3}
+      propertyPath: sunPivotObject
+      value: 
+      objectReference: {fileID: 1129365504302800800}
+    - target: {fileID: 1567818141952673607, guid: dd48c9fe2563ef64e975e0a95cee32e2, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 46.856415
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567818141952673607, guid: dd48c9fe2563ef64e975e0a95cee32e2, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 6.6237173
       objectReference: {fileID: 0}
     - target: {fileID: 7324658755872402387, guid: dd48c9fe2563ef64e975e0a95cee32e2, type: 3}
       propertyPath: m_LocalPosition.x

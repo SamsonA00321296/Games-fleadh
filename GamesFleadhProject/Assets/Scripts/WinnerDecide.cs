@@ -30,7 +30,7 @@ public class WinnerDecide : MonoBehaviour
         {
             Debug.Log("Player 1 wins!");
             Destroy(timer.gameObject);
-            GameObject winMessage = Instantiate(winScreen, new Vector3(0, 5, 0), Quaternion.identity);
+            GameObject winMessage = Instantiate(winScreen, new Vector3(transform.position.x, transform.position.y+5, transform.position.z), Quaternion.identity);
             winMessage.GetComponent<MoveInWinScreen>().SetStats(winSprites[0], this);
         }
         else if (planet2.score > planet1.score)

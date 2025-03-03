@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5078795030643677549}
   - component: {fileID: 1567818141952673607}
   - component: {fileID: 1326064148763588024}
+  - component: {fileID: 6281123774934214910}
   m_Layer: 9
   m_Name: OuterMoons
   m_TagString: Untagged
@@ -170,7 +171,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 24, y: 0}
+  m_ConnectedAnchor: {x: 24.256414, y: -4.3762827}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!114 &1326064148763588024
@@ -187,3 +188,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationalSpeed: 0
   sunPivotObject: {fileID: 0}
+  _isHooked: 0
+  value: {fileID: 6281123774934214910}
+--- !u!114 &6281123774934214910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627317368783714363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb24119dffdb869448eda039db95dcc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 0
+  launched: 0

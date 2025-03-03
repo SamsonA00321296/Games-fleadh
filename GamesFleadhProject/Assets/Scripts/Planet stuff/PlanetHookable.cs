@@ -3,35 +3,65 @@ using UnityEngine;
 
 namespace Planet_stuff
 {
-    public class PlanetHookable : MonoBehaviour
+    public class MoonFixedJointAttacher : MonoBehaviour
     {
-        void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Hook"))
-            {
-                Debug.Log($"Planet detected hook: {other.gameObject.name}");
-                AttachHook(other.gameObject);
-                
-                HookShot hookshot = other.gameObject.GetComponent<HookShot>();
-                if (hookshot)
-                {
-                    HookShot.isAttached = true;
-                }
-            }
-        }
+        private FixedJoint2D _fixedJoint;
+        
+        public float rotationalSpeed;
+        public GameObject sunPivotObject;
+
+        public bool _isHooked;
+        public ValueScript value;
         
 
-        void AttachHook(GameObject hook)
+        void Start()
         {
-            Rigidbody2D hookRb = hook.GetComponent<Rigidbody2D>();
-            if (hookRb == null) return;
+            // Cache the FixedJoint2D component attached to this moon prefab.
+            _fixedJoint = GetComponent<FixedJoint2D>();
+            rotationalSpeed = Random.Range(-15.0f, -5.0f);
+        }
+       
 
-            hookRb.linearVelocity = Vector2.zero;
-            hookRb.bodyType = RigidbodyType2D.Dynamic;
+        // Update is called once per frame
+        void Update()
+        {
+            if (!_isHooked)
+            {
+                transform.RotateAround(sunPivotObject.transform.position, Vector3.forward, rotationalSpeed * Time.deltaTime);
+            }
+            else
+            {
+                value.launched = true;
+            }
 
-            HingeJoint2D joint = hook.AddComponent<HingeJoint2D>();
-            joint.connectedBody = GetComponent<Rigidbody2D>(); // Attach to planet
-            
+        }
+
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            // Check if the other object has the "Hook" tag.
+            if (other.CompareTag("Hook"))
+            {
+                _isHooked = true;
+                // Get the Rigidbody2D of the object that entered the trigger.
+                Rigidbody2D otherBody = other.GetComponent<Rigidbody2D>();
+                InitialSpikeThrust initialSpikeThrust = other.GetComponent<InitialSpikeThrust>();
+
+                // If a Rigidbody2D is found, assign it as the connected body of the FixedJoint2D.
+                if (otherBody != null && initialSpikeThrust != null)
+                {
+                    if (initialSpikeThrust.hasPlanet == false)
+                    {
+                        _fixedJoint.connectedBody = otherBody;
+                        initialSpikeThrust.hasPlanet = true;
+                        //Debug.Log("Moon attached to: " + other.gameObject.name);
+                    }
+                    
+                }
+                else
+                {
+                    //Debug.LogWarning("No Rigidbody2D Or initial spike thrust script found on " + other.gameObject.name);
+                }
+            }
         }
     }
 }
