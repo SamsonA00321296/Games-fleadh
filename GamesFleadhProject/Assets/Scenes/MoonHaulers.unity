@@ -2178,6 +2178,14 @@ PrefabInstance:
       propertyPath: rotationalSpeed
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 5468172381172427299, guid: d1cba2754a71e0f48ad328356e407643, type: 3}
+      propertyPath: value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803687755936243018, guid: d1cba2754a71e0f48ad328356e407643, type: 3}
+      propertyPath: value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7120328290108614367, guid: d1cba2754a71e0f48ad328356e407643, type: 3}
       propertyPath: player
       value: 

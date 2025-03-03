@@ -1,39 +1,35 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MoveIn : MonoBehaviour
 {
-    public float xInitVelocity;
-    public float yInitVelocity;
-    public float decrRate;
-    public float decrMagnitude;
     public float intendedX;
     public float intendedY;
 
     public Rigidbody2D rb;
+    public bool stopped = false;
+    public Vector2 calcDirection;
 
     public Bob bob;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb.linearVelocity = new Vector2(xInitVelocity, yInitVelocity);
-        StartCoroutine(DecreaseSpeed());
+        calcDirection = (new Vector2(intendedX, intendedY) - rb.position);
+        
     }
 
     // Update is called once per frame
-    IEnumerator DecreaseSpeed()
+        
+    
+    void Update()
     {
-        if (rb.linearVelocity.magnitude != 0)
+        if (new Vector2(intendedX, intendedY) != rb.position)
         {
-            rb.linearVelocity *= 1-decrMagnitude;
-            yield return new WaitForSeconds(decrRate);
-            if (rb.linearVelocity.magnitude < 0.05 && rb.linearVelocity.magnitude > -0.05)
-            {
-                rb.linearVelocity *= 0;
-            }
-            StartCoroutine(DecreaseSpeed());
+            calcDirection = (new Vector2(intendedX, intendedY) - rb.position);
+            gameObject.transform.Translate(calcDirection * Time.deltaTime);
         }
-        else
+        else if (!stopped)
         {
             bob.bobbing = true;
             bob.bobbingRB.linearVelocity = new Vector2(0, 0.05f);
@@ -42,12 +38,7 @@ public class MoveIn : MonoBehaviour
                 transform.position = new Vector2(intendedX, intendedY);
             }
             bob.initPos = transform.position;
-
+            stopped = true;
         }
-        
-    }
-    void Update()
-    {
-        
     }
 }
