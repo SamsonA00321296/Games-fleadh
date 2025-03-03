@@ -8,12 +8,13 @@ namespace Gravity_and_orbit_scripts
     
         [Header("Scripts")]
     
-        public PlayerMovement player;
+        public PlayerMovement player; // reference to the player movement script
     
         [Header("references")] 
     
-        public GameObject target;
+        public GameObject target; // refernce to the target, should be the player ship
 
+        // starts the orbit once player collides with the center of gravity
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.name.Equals(target.name))

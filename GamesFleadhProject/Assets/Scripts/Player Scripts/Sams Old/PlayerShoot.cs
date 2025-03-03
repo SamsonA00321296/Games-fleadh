@@ -10,10 +10,8 @@ namespace Player_Scripts
         public Transform laserSpawnPoint;
         public GameObject laserPrefab;
         
-
         [Header("laser elements")]
         public float laserSpeed = 50;
-
         public float laserCost = 10;
 
         private void OnAttack()
