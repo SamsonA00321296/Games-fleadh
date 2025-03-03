@@ -7,8 +7,6 @@ public class MoveInWinScreen : MonoBehaviour
     public float yInitVelocity;
     public float decrRate;
     public float decrMagnitude;
-    public float intendedX;
-    public float intendedY;
 
     public Rigidbody2D rb;
     public WinnerDecide decide;
@@ -37,10 +35,6 @@ public class MoveInWinScreen : MonoBehaviour
         }
         else
         {
-            if (transform.position.x != intendedX || transform.position.y != intendedY)
-            {
-                transform.position = new Vector2(intendedX, intendedY);
-            }
             decide.ShowScores();
         }
         

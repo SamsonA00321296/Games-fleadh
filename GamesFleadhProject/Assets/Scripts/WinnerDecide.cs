@@ -12,6 +12,8 @@ public class WinnerDecide : MonoBehaviour
     public GameObject scoreboard;
     public GameObject winScreen;
     public Sprite[] winSprites;
+
+    public GameObject cameraObj;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,15 +32,17 @@ public class WinnerDecide : MonoBehaviour
         {
             Debug.Log("Player 1 wins!");
             Destroy(timer.gameObject);
-            GameObject winMessage = Instantiate(winScreen, new Vector3(transform.position.x, transform.position.y+5, transform.position.z), Quaternion.identity);
+            GameObject winMessage = Instantiate(winScreen, new Vector3(transform.position.x, transform.position.y+10, transform.position.z), Quaternion.identity);
             winMessage.GetComponent<MoveInWinScreen>().SetStats(winSprites[0], this);
+            winMessage.transform.parent = cameraObj.transform;
         }
         else if (planet2.score > planet1.score)
         {
             Debug.Log("Player 2 wins!");
             Destroy(timer.gameObject);
-            GameObject winMessage = Instantiate(winScreen, new Vector3(0, 5, 0), Quaternion.identity);
+            GameObject winMessage = Instantiate(winScreen, new Vector3(transform.position.x, transform.position.y+10, transform.position.z), Quaternion.identity);
             winMessage.GetComponent<MoveInWinScreen>().SetStats(winSprites[1], this);
+            winMessage.transform.parent = cameraObj.transform;
         }
         else
         {
@@ -50,6 +54,7 @@ public class WinnerDecide : MonoBehaviour
     {
         GameObject scores = Instantiate(scoreboard, transform.position, Quaternion.identity);
         scores.GetComponent<ScoreTransfer>().TransferScore(planet1.score, planet2.score);
+        scores.transform.parent = cameraObj.transform;
         StartCoroutine(EndDelay());
     }
 

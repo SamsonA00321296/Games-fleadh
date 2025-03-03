@@ -1266,7 +1266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3991be8cf337fcf4c886ca2350a3b4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: ScoreTest
+  sceneToLoad: MoonHaulers
 --- !u!114 &873150766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2080,10 +2080,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.15405406
-    y: 0.04566929
-    width: 0.6918919
-    height: 0.9070866
+    x: 0.7720207
+    y: 0.057570525
+    width: 0.3316062
+    height: 0.44214165
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
