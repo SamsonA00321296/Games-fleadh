@@ -7,7 +7,7 @@ namespace Planet_stuff
         // Assign the central object (target) in the inspector.
         public Transform centerObject;
     
-        // Adjust the force magnitude as needed.
+        // Adjust the speed magnitude as needed.
         public float forceMagnitude = 10f;
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -21,8 +21,8 @@ namespace Planet_stuff
                 {
                     // Calculate the direction vector from the player to the central object.
                     Vector2 direction = (centerObject.position - other.transform.position).normalized;
-                    // Apply an impulse force to propel the player toward the center.
-                    rb.AddForce(direction * forceMagnitude, ForceMode2D.Impulse);
+                    // Override the player's velocity to ensure they are propelled toward the center.
+                    rb.linearVelocity = direction * forceMagnitude;
                 }
             }
         }
