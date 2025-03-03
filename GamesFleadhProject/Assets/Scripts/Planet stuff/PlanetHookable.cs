@@ -1,4 +1,3 @@
-using Player_Scripts;
 using UnityEngine;
 
 namespace Planet_stuff
@@ -10,8 +9,7 @@ namespace Planet_stuff
         public float rotationalSpeed;
         public GameObject sunPivotObject;
 
-        public bool _isHooked;
-        public ValueScript value;
+        private bool _isHooked;
         
 
         void Start()
@@ -28,10 +26,6 @@ namespace Planet_stuff
             if (!_isHooked)
             {
                 transform.RotateAround(sunPivotObject.transform.position, Vector3.forward, rotationalSpeed * Time.deltaTime);
-            }
-            else
-            {
-                value.launched = true;
             }
 
         }
