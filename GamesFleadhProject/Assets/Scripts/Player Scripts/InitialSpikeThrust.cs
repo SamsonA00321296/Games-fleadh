@@ -9,6 +9,12 @@ public class InitialSpikeThrust : MonoBehaviour
     // Multiplies into thrustStrenght to calculate kickback
     public float kickbackMultiplier = 1f;
 
+    // this is used in the planetHookable script to make sure you can only haul one planet at once
+    public bool hasPlanet;
+
+    // this will be used to store what player actually shot the hook
+    public GameObject shooter;
+    
     // Objects RigidBody
     Rigidbody2D spikeRigidbody;
 
@@ -17,7 +23,6 @@ public class InitialSpikeThrust : MonoBehaviour
 
     // Hinges on the parent object
     HingeJoint2D[] parentHinges;
-
     
 
     // Spikes parent ship
