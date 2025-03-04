@@ -5362,7 +5362,7 @@ MonoBehaviour:
   shakeMagnitude: 10
   shakeFrequency: 20
   maxBoostTime: 3
-  boostRegenRate: 4
+  boostRegenRate: 0.25
   boostBarImage: {fileID: 8221037321702985747}
   boostParticles: {fileID: 3395854773548779646}
 --- !u!114 &5985610826427977080
