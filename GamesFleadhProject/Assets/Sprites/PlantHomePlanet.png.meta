@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8405fe2337164cf4eb1b894852e70ed1
+guid: fc401f484d1673c49aeaaaeff01bdd37
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7197702783637013416
-    second: asteroid2_0
+      213: -3802372889045644936
+    second: PlantHomePlanet_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: asteroid2_0
+      name: PlantHomePlanet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 12
-        height: 12
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 85cb97e047f9c1c90800000000000000
-      internalID: -7197702783637013416
+      spriteID: 879cbd4d0024b3bc0800000000000000
+      internalID: -3802372889045644936
       vertices: []
       indices: 
       edges: []
@@ -126,18 +126,16 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: b5338bac3ccbc3c489804c4130f1aa37, type: 3}
-      name: _NormalMap
+    secondaryTextures: []
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      asteroid2_0: -7197702783637013416
+      PlantHomePlanet_0: -3802372889045644936
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
