@@ -8,6 +8,7 @@ TagManager:
   - Planet
   - Hook
   - Bullet
+  - die
   layers:
   - Default
   - TransparentFX
