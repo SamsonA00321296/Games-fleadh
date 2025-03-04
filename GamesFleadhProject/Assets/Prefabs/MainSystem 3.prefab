@@ -524,6 +524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sun
       objectReference: {fileID: 0}
+    - target: {fileID: 1139595951148509822, guid: e8072245844587a4a80fb60a3e266767, type: 3}
+      propertyPath: m_TagString
+      value: HomePlant
+      objectReference: {fileID: 0}
     - target: {fileID: 1605854486638636350, guid: e8072245844587a4a80fb60a3e266767, type: 3}
       propertyPath: m_Name
       value: InnerMoonContainerParent
@@ -652,6 +656,10 @@ PrefabInstance:
       propertyPath: transitionTime
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 6088667562937924986, guid: e8072245844587a4a80fb60a3e266767, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 6330071872043398539, guid: e8072245844587a4a80fb60a3e266767, type: 3}
       propertyPath: GoldMoon
       value: 
@@ -779,6 +787,14 @@ PrefabInstance:
     - target: {fileID: 8389658455230408729, guid: e8072245844587a4a80fb60a3e266767, type: 3}
       propertyPath: m_ConnectedAnchor.y
       value: -3.7962828
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699381610559652296, guid: e8072245844587a4a80fb60a3e266767, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 8712882480233941415, guid: e8072245844587a4a80fb60a3e266767, type: 3}
+      propertyPath: m_TagString
+      value: HomeRobot
       objectReference: {fileID: 0}
     - target: {fileID: 8865003856636751505, guid: e8072245844587a4a80fb60a3e266767, type: 3}
       propertyPath: sunPivotObject
