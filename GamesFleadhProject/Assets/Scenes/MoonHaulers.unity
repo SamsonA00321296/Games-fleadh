@@ -1441,6 +1441,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1560,12 +1561,37 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1974267274}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_AssetsPPU: 32
+  m_RefResolutionX: 512
+  m_RefResolutionY: 384
+  m_CropFrame: 0
+  m_GridSnapping: 0
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!4 &527276381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3468396332194546489, guid: f1234eb9efcd2a84bbc837961dc6c2ad, type: 3}
@@ -3831,7 +3857,7 @@ GameObject:
   - component: {fileID: 1532664125}
   m_Layer: 0
   m_Name: TimerCamera
-  m_TagString: Untagged
+  m_TagString: die
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4100,7 +4126,7 @@ GameObject:
   - component: {fileID: 1556403389}
   m_Layer: 5
   m_Name: Mini Map
-  m_TagString: Untagged
+  m_TagString: die
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4378,7 +4404,7 @@ GameObject:
   - component: {fileID: 1656605370}
   m_Layer: 0
   m_Name: MiniiMapCamera
-  m_TagString: Untagged
+  m_TagString: die
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4901,7 +4927,7 @@ GameObject:
   - component: {fileID: 1859270878}
   m_Layer: 0
   m_Name: Timer
-  m_TagString: Untagged
+  m_TagString: die
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5376,11 +5402,11 @@ Transform:
   m_GameObject: {fileID: 1974267272}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 77, y: 43, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 519420032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1987162871
 GameObject:
@@ -10616,6 +10642,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: -3.2462826
       objectReference: {fileID: 0}
+    - target: {fileID: 4838409114281160630, guid: 21741d019fd1b4041a4d03851907cdc9, type: 3}
+      propertyPath: score
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4903370001648403172, guid: 21741d019fd1b4041a4d03851907cdc9, type: 3}
       propertyPath: m_TagString
       value: Planet
@@ -10773,7 +10803,6 @@ SceneRoots:
   - {fileID: 828936203}
   - {fileID: 133520466}
   - {fileID: 998780910}
-  - {fileID: 1974267274}
   - {fileID: 1859270877}
   - {fileID: 1532664128}
   - {fileID: 1656605373}
