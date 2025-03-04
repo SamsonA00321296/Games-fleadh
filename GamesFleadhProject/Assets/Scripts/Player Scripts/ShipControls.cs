@@ -22,10 +22,6 @@ namespace Player_Scripts
         public float boostMultiplier = 1.5f;
         public bool canBoost = true;
 
-        // Input actions.
-        InputAction _flyAction;
-        InputAction _boostAction;
-
         // Expected Z rotation based on player input.
         float _zRotation;
 
@@ -68,10 +64,6 @@ namespace Player_Scripts
         {
             _parentTransform = transform;
             _shipRigidbody = GetComponent<Rigidbody2D>();
-
-            // Find the input actions.
-            _flyAction = InputSystem.actions.FindAction("Fly");
-            _boostAction = InputSystem.actions.FindAction("BoostFly");
 
             // Initialize boost values.
             _boostRemaining = maxBoostTime;
@@ -145,7 +137,7 @@ namespace Player_Scripts
                 }
 
                 // Regenerate boost when boost button is not held.
-                if (!_boostAction.IsPressed())
+                if (!isBoosting)
                 {
                     _boostRemaining = Mathf.Min(_boostRemaining + boostRegenRate * Time.fixedDeltaTime, maxBoostTime);
                     if (_boostRemaining > 0)

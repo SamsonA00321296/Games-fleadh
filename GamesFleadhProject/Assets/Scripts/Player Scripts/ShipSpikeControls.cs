@@ -16,7 +16,7 @@ namespace Player_Scripts
         
         // Is there currently a spike?
         public bool spikeOut = false;
-        bool canSpike = true;
+        bool canSpike = false;
 
         // Parent Gameobject
         GameObject parent;
@@ -35,6 +35,8 @@ namespace Player_Scripts
             parent = gameObject.transform.parent.gameObject;
             ship = parent.transform.GetChild(0).gameObject;
             shipTransform = ship.transform;
+
+            StartCoroutine(StartUpSpike());
         }
 
         // Update is called once per frame
@@ -77,6 +79,12 @@ namespace Player_Scripts
             yield return new WaitForSeconds(chainCooldown);
             canSpike = true;
             Destroy(spikeAndChain);
+        }
+
+        IEnumerator StartUpSpike()
+        {
+            canSpike = true;
+            yield return new WaitForSeconds(0.5f);
         }
         
         

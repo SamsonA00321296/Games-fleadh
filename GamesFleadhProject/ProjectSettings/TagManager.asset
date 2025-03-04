@@ -9,6 +9,8 @@ TagManager:
   - Hook
   - Bullet
   - die
+  - HomeRobot
+  - HomePlant
   layers:
   - Default
   - TransparentFX
