@@ -121,7 +121,7 @@ namespace Player_Scripts
                     _shipRigidbody.AddForce(transform.up * (thrustForce * boostMultiplier));
                 
                     // Start the particle effect if not already playing.
-                    if (boostParticles != null && !boostParticles.isPlaying)
+                    if (boostParticles && !boostParticles.isPlaying)
                     {
                         boostParticles.Play();
                     }
@@ -129,7 +129,7 @@ namespace Player_Scripts
                 else
                 {
                     // Stop the boost particle effect when not boosting.
-                    if (boostParticles != null && boostParticles.isPlaying)
+                    if (boostParticles && boostParticles.isPlaying)
                     {
                         boostParticles.Stop();
                     }
