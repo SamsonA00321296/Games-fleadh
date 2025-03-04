@@ -26,7 +26,7 @@ public class InitialSpikeThrust : MonoBehaviour
     
 
     // Spikes parent ship
-    GameObject parentShip;
+    public GameObject parentShip;
 
     // parent ships rigidbody
     Rigidbody2D parentShipRigidbody;

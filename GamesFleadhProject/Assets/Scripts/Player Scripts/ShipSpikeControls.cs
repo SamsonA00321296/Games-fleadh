@@ -15,7 +15,7 @@ namespace Player_Scripts
         public GameObject SpikePrefab;
         
         // Is there currently a spike?
-        bool spikeOut = false;
+        public bool spikeOut = false;
         bool canSpike = true;
 
         // Parent Gameobject
@@ -72,7 +72,7 @@ namespace Player_Scripts
         }
 
         // Destroys the spike and chain after chain-cooldown time
-        IEnumerator DestroySpike()
+        public IEnumerator DestroySpike()
         {
             yield return new WaitForSeconds(chainCooldown);
             canSpike = true;

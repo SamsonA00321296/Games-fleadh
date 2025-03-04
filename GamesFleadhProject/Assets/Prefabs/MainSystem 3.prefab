@@ -357,6 +357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationalSpeed: -5
   sunPivotObject: {fileID: 8350663342262909002}
+  spikeAttached: {fileID: 0}
 --- !u!50 &7742877533326574675
 Rigidbody2D:
   serializedVersion: 5
@@ -745,7 +746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7816892092535344769, guid: e8072245844587a4a80fb60a3e266767, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7816892092535344769, guid: e8072245844587a4a80fb60a3e266767, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -987,6 +988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationalSpeed: -5
   sunPivotObject: {fileID: 8350663342262909002}
+  spikeAttached: {fileID: 0}
 --- !u!50 &4021839664449578347
 Rigidbody2D:
   serializedVersion: 5
@@ -1167,6 +1169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationalSpeed: -5
   sunPivotObject: {fileID: 8350663342262909002}
+  spikeAttached: {fileID: 0}
 --- !u!50 &3329745688233491849
 Rigidbody2D:
   serializedVersion: 5
@@ -1337,6 +1340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationalSpeed: -5
   sunPivotObject: {fileID: 8350663342262909002}
+  spikeAttached: {fileID: 0}
 --- !u!50 &5288489458385327583
 Rigidbody2D:
   serializedVersion: 5
