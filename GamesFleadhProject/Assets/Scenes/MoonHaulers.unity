@@ -976,6 +976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationalSpeed: 0
   sunPivotObject: {fileID: 0}
+  spikeAttached: {fileID: 0}
 --- !u!114 &352312322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1366,7 +1367,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -10
   m_Sprite: {fileID: 2298072782202708730, guid: 21fcc29569f2cd7478f6ceb4bc97c1c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1615,10 +1616,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.043243244
-    y: 0.04738401
-    width: 0.34594595
-    height: 0.37907207
+    x: 0.12987013
+    y: 0.007692308
+    width: 0.73881674
+    height: 0.98461545
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -2726,6 +2727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationalSpeed: 0
   sunPivotObject: {fileID: 0}
+  spikeAttached: {fileID: 0}
 --- !u!255 &925873843
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -2873,6 +2875,82 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1234eb9efcd2a84bbc837961dc6c2ad, type: 3}
+--- !u!1 &998780908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 998780910}
+  - component: {fileID: 998780909}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &998780909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998780908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NotificationBehavior: 0
+  m_MaxPlayerCount: 4
+  m_AllowJoining: 1
+  m_JoinBehavior: 0
+  m_PlayerJoinedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_PlayerLeftEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_JoinAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 47bc25fb-c9a2-4917-b372-b992aafb3e4c
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_PlayerPrefab: {fileID: 5934857637802822914, guid: 8c7d836acb11fcd4f97b0720dabc0ef3, type: 3}
+  m_SplitScreen: 1
+  m_MaintainAspectRatioInSplitScreen: 0
+  m_FixedNumberOfSplitScreens: -1
+  m_SplitScreenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!4 &998780910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998780908}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1025966184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3525,6 +3603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationalSpeed: 0
   sunPivotObject: {fileID: 0}
+  spikeAttached: {fileID: 0}
 --- !u!114 &1327299466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9915,6 +9994,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Holder
       objectReference: {fileID: 0}
+    - target: {fileID: 5934857637802822914, guid: 8c7d836acb11fcd4f97b0720dabc0ef3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8649768335323134372, guid: 8c7d836acb11fcd4f97b0720dabc0ef3, type: 3}
       propertyPath: maxBoostTime
       value: 3
@@ -10226,3 +10309,4 @@ SceneRoots:
   - {fileID: 6644927200668413618}
   - {fileID: 828936203}
   - {fileID: 133520466}
+  - {fileID: 998780910}

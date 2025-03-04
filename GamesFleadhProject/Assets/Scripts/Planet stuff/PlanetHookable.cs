@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Planet_stuff
@@ -10,6 +11,8 @@ namespace Planet_stuff
         public GameObject sunPivotObject;
 
         private bool _isHooked;
+
+        public GameObject spikeAttached;
         
 
         void Start()
@@ -39,21 +42,28 @@ namespace Planet_stuff
             // Check if the other object has the "Hook" tag.
             if (other.CompareTag("Hook"))
             {
-                _isHooked = true;
-                // Get the Rigidbody2D of the object that entered the trigger.
-                Rigidbody2D otherBody = other.GetComponent<Rigidbody2D>();
                 InitialSpikeThrust initialSpikeThrust = other.GetComponent<InitialSpikeThrust>();
 
-                // If a Rigidbody2D is found, assign it as the connected body of the FixedJoint2D.
-                if (otherBody != null && initialSpikeThrust != null)
-                {
-                    if (initialSpikeThrust.hasPlanet == false)
+                if(!initialSpikeThrust.hasPlanet)
+                { 
+                    _isHooked = true;
+                    // Get the spike from the collision
+                    spikeAttached = other.gameObject;
+
+                    // Get the Rigidbody2D of the object that entered the trigger.
+                    Rigidbody2D otherBody = other.GetComponent<Rigidbody2D>();
+
+
+                    // If a Rigidbody2D is found, assign it as the connected body of the FixedJoint2D.
+                    if (otherBody != null && initialSpikeThrust != null)
                     {
-                        _fixedJoint.connectedBody = otherBody;
-                        initialSpikeThrust.hasPlanet = true;
-                        //Debug.Log("Moon attached to: " + other.gameObject.name);
+                        if (initialSpikeThrust.hasPlanet == false)
+                        {
+                            _fixedJoint.connectedBody = otherBody;
+                            initialSpikeThrust.hasPlanet = true;
+                            //Debug.Log("Moon attached to: " + other.gameObject.name);
+                        }
                     }
-                    
                 }
                 else
                 {

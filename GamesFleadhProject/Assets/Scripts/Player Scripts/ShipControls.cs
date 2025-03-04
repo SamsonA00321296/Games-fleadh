@@ -35,6 +35,10 @@ namespace Player_Scripts
         // Used to disable movement when hit by a bullet.
         public bool isShot;
 
+        // To save if the players are flying/boosting
+        bool isFlying = false;
+        bool isBoosting = false;
+
         // Team assignment to avoid friendly fire.
         public int teamID;
 
@@ -99,8 +103,9 @@ namespace Player_Scripts
             if (!isShot)
             {
                 // Check if boost is active.
-                if (_boostAction.IsPressed() && canBoost && _boostRemaining > 0)
+                if (isBoosting && canBoost && _boostRemaining > 0)
                 {
+                    //Debug.Log("is boosting");
                     // Increase how long the boost button has been held.
                     _boostHoldTime += Time.fixedDeltaTime;
                     // Drain rate increases the longer boost is held.
@@ -133,7 +138,7 @@ namespace Player_Scripts
                     _boostHoldTime = 0f;
                 
                     // Apply normal thrust if the fly action is pressed.
-                    if (_flyAction.IsPressed())
+                    if (isFlying)
                     {
                         _shipRigidbody.AddForce(transform.up * thrustForce);
                     }
@@ -193,6 +198,34 @@ namespace Player_Scripts
             // Wait out the remainder of the 3-second cooldown.
             yield return new WaitForSeconds(3f - shakeDuration);
             isShot = false;
+        }
+
+        // VERY JANKY
+        // toggles between the ship flying and the ship not flying
+        // everytime the fly button is pressed & depressed
+        void OnFly(InputValue buttonPressed)
+        {
+            if(!isFlying)
+            {
+                isFlying = true;
+            }
+            else
+            {
+                isFlying = false;
+            }
+        }
+
+        // also janky but still works???
+        void OnBoostFly()
+        {
+            if(!isBoosting)
+            {
+                isBoosting = true;
+            }
+            else
+            {
+                isBoosting = false;
+            }
         }
     }
 }
