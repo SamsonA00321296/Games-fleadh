@@ -554,7 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e35a216b304718489889d0ad24f1c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 398934247996382541}
+  player: {fileID: 0}
   target: {fileID: 2417924916722841386}
 --- !u!1001 &1398619919541073651
 PrefabInstance:
@@ -579,6 +579,10 @@ PrefabInstance:
     - target: {fileID: 3667852655890481625, guid: fba1a1e4acb6ca946881ca3d182ef2eb, type: 3}
       propertyPath: m_Name
       value: Player_Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 3667852655890481625, guid: fba1a1e4acb6ca946881ca3d182ef2eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4076564633231458549, guid: fba1a1e4acb6ca946881ca3d182ef2eb, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
@@ -624,7 +628,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1648785845446519742, guid: fba1a1e4acb6ca946881ca3d182ef2eb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4887497698753213873, guid: fba1a1e4acb6ca946881ca3d182ef2eb, type: 3}
@@ -638,17 +643,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1091443780191307136}
   m_SourcePrefab: {fileID: 100100000, guid: fba1a1e4acb6ca946881ca3d182ef2eb, type: 3}
---- !u!114 &398934247996382541 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1648785845446519742, guid: fba1a1e4acb6ca946881ca3d182ef2eb, type: 3}
-  m_PrefabInstance: {fileID: 1398619919541073651}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2417924916722841386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5deb6903a6b1bf4ab076d434b0c10d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2417924916722841386 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3667852655890481625, guid: fba1a1e4acb6ca946881ca3d182ef2eb, type: 3}
@@ -690,6 +684,14 @@ PrefabInstance:
     - target: {fileID: 627317368783714363, guid: dd48c9fe2563ef64e975e0a95cee32e2, type: 3}
       propertyPath: m_Name
       value: GoldMoon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567818141952673607, guid: dd48c9fe2563ef64e975e0a95cee32e2, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 19.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567818141952673607, guid: dd48c9fe2563ef64e975e0a95cee32e2, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 4231522055613076195, guid: dd48c9fe2563ef64e975e0a95cee32e2, type: 3}
       propertyPath: m_Size.x
@@ -962,6 +964,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6660475839867336148, guid: e8072245844587a4a80fb60a3e266767, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6660475839867336148, guid: e8072245844587a4a80fb60a3e266767, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.57
+      objectReference: {fileID: 0}
     - target: {fileID: 7512853405229006329, guid: e8072245844587a4a80fb60a3e266767, type: 3}
       propertyPath: GoldMoon
       value: 
@@ -985,6 +995,14 @@ PrefabInstance:
     - target: {fileID: 7835755751914743322, guid: e8072245844587a4a80fb60a3e266767, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389658455230408729, guid: e8072245844587a4a80fb60a3e266767, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389658455230408729, guid: e8072245844587a4a80fb60a3e266767, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5628761967449726287, guid: e8072245844587a4a80fb60a3e266767, type: 3}

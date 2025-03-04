@@ -28,6 +28,10 @@ namespace Planet_stuff
                 transform.RotateAround(sunPivotObject.transform.position, Vector3.forward, rotationalSpeed * Time.deltaTime);
             }
 
+            if (_isHooked)
+            {
+                gameObject.GetComponent<ValueScript>().launched = true;
+            }
         }
 
         void OnTriggerEnter2D(Collider2D other)
