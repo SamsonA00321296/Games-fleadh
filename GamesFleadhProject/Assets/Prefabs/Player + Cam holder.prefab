@@ -45,7 +45,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 5cc2a131e4328f046928e70a1336115f, type: 3}
   m_Resource: {fileID: 8300000, guid: 5cc2a131e4328f046928e70a1336115f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.396
+  m_Volume: 0.172
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -174,7 +174,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: c329105296347984982e9f246b4aa042, type: 3}
   m_Resource: {fileID: 8300000, guid: c329105296347984982e9f246b4aa042, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.324
+  m_Volume: 0.13
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -303,7 +303,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: a27fe4bddcc3d614d8c6ba3f5284c5bc, type: 3}
   m_Resource: {fileID: 8300000, guid: a27fe4bddcc3d614d8c6ba3f5284c5bc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.219
+  m_Volume: 0.075
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -621,6 +621,10 @@ PrefabInstance:
       propertyPath: boostSound
       value: 
       objectReference: {fileID: 6649946237399316997}
+    - target: {fileID: 2503667377635036693, guid: 5a0ae8bb6d3a7834083b30d62492a8ef, type: 3}
+      propertyPath: boostRegenRate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3752508085811510665, guid: 5a0ae8bb6d3a7834083b30d62492a8ef, type: 3}
       propertyPath: ChainSound
       value: 
