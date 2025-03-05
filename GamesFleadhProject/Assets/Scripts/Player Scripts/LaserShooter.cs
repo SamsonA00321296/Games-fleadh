@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player_Scripts
 {
@@ -17,6 +18,8 @@ namespace Player_Scripts
 
         // Index to alternate between spawn points (0 or 1).
         private int _spawnIndex = 0;
+        
+        public AudioSource laserSound;
 
         
 
@@ -27,6 +30,7 @@ namespace Player_Scripts
         
             // Instantiate the bullet at the chosen spawn point's position and rotation.
             GameObject bullet = Instantiate(bulletPrefab, chosenSpawnPoint.position, chosenSpawnPoint.rotation);
+            laserSound.Play();
         
             // Get the Rigidbody2D component from the instantiated bullet.
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
