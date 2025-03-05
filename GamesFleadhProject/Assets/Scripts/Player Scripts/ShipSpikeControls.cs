@@ -29,8 +29,6 @@ namespace Player_Scripts
         // Ship Transform
         Transform shipTransform;
 
-        public AudioSource chainShot;
-
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
@@ -65,11 +63,6 @@ namespace Player_Scripts
 
                 spikeOut = true;
                 canSpike = false;
-
-                if(chainShot)
-                {
-                    chainShot.Play();
-                }
             }
             // If not, check if the spike is out. If so queue deletion and start retracting
             else if (spikeOut)

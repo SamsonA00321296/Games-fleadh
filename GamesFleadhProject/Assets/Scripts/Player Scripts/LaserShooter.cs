@@ -17,7 +17,6 @@ namespace Player_Scripts
 
         // Index to alternate between spawn points (0 or 1).
         private int _spawnIndex = 0;
-        public AudioSource bulletSound;
 
         
 
@@ -35,12 +34,6 @@ namespace Player_Scripts
             {
                 // Set the bullet's velocity in the direction the chosen spawn point is facing.
                 rb.linearVelocity = chosenSpawnPoint.up * bulletSpeed;
-                
-                if (bulletSound)
-                {
-                    bulletSound.Play();
-                }
-
             }
             else
             {

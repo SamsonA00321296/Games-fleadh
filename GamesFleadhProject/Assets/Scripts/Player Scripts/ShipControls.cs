@@ -59,7 +59,6 @@ namespace Player_Scripts
         [Header("Boost Particle System")]
         // Reference to a ParticleSystem that plays when boosting.
         public ParticleSystem boostParticles;
-        public AudioSource boostSound;
 
         void Start()
         {
@@ -117,14 +116,6 @@ namespace Player_Scripts
                     if (boostParticles && !boostParticles.isPlaying)
                     {
                         boostParticles.Play();
-
-                    }
-
-                    //Audio Controller for Boosting
-
-                    if (boostSound && !boostSound.isPlaying)
-                    {
-                        boostSound.Play();
                     }
                 }
                 else
@@ -134,13 +125,7 @@ namespace Player_Scripts
                     {
                         boostParticles.Stop();
                     }
-
-                    // Stop the boost sound when not boosting.
-                    if (boostSound && boostSound.isPlaying)
-                    {
-                        boostSound.Stop();
-                    }
-
+                
                     // Reset the boost hold timer when not boosting.
                     _boostHoldTime = 0f;
                 
