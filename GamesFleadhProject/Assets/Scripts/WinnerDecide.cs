@@ -35,6 +35,10 @@ public class WinnerDecide : MonoBehaviour
             GameObject winMessage = Instantiate(winScreen, new Vector3(transform.position.x, transform.position.y+10, transform.position.z), Quaternion.identity);
             winMessage.GetComponent<MoveInWinScreen>().SetStats(winSprites[0], this);
             winMessage.transform.parent = cameraObj.transform;
+            GameObject[] gos = GameObject.FindGameObjectsWithTag("die");
+            foreach(GameObject go in gos)
+                Destroy(go);
+
         }
         else if (planet2.score > planet1.score)
         {
@@ -43,6 +47,9 @@ public class WinnerDecide : MonoBehaviour
             GameObject winMessage = Instantiate(winScreen, new Vector3(transform.position.x, transform.position.y+10, transform.position.z), Quaternion.identity);
             winMessage.GetComponent<MoveInWinScreen>().SetStats(winSprites[1], this);
             winMessage.transform.parent = cameraObj.transform;
+            GameObject[] gos = GameObject.FindGameObjectsWithTag("die");
+            foreach(GameObject go in gos)
+                Destroy(go);
         }
         else
         {

@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: d8b405c86c68c2c46bd779005377105e
+guid: dfe59f39ec67486448a45f44b273686f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5237396212971390002
-    second: PlantPlanetNormal_0
+      213: 5853268487177279640
+    second: backgroundMoonhaulers_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
-    sRGBTexture: 0
+    enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -55,9 +55,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 1
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlantPlanetNormal_0
+      name: backgroundMoonhaulers_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 63
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 234c2265b18fea840800000000000000
-      internalID: 5237396212971390002
+      spriteID: 89890395dacfa3150800000000000000
+      internalID: 5853268487177279640
       vertices: []
       indices: 
       edges: []

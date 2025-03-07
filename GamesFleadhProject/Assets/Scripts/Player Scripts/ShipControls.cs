@@ -22,10 +22,6 @@ namespace Player_Scripts
         public float boostMultiplier = 1.5f;
         public bool canBoost = true;
 
-        // Input actions.
-        InputAction _flyAction;
-        InputAction _boostAction;
-
         // Expected Z rotation based on player input.
         float _zRotation;
 
@@ -63,15 +59,13 @@ namespace Player_Scripts
         [Header("Boost Particle System")]
         // Reference to a ParticleSystem that plays when boosting.
         public ParticleSystem boostParticles;
+        
+        public AudioSource boostSound;
 
         void Start()
         {
             _parentTransform = transform;
             _shipRigidbody = GetComponent<Rigidbody2D>();
-
-            // Find the input actions.
-            _flyAction = InputSystem.actions.FindAction("Fly");
-            _boostAction = InputSystem.actions.FindAction("BoostFly");
 
             // Initialize boost values.
             _boostRemaining = maxBoostTime;
@@ -121,17 +115,19 @@ namespace Player_Scripts
                     _shipRigidbody.AddForce(transform.up * (thrustForce * boostMultiplier));
                 
                     // Start the particle effect if not already playing.
-                    if (boostParticles != null && !boostParticles.isPlaying)
+                    if (boostParticles && !boostParticles.isPlaying)
                     {
                         boostParticles.Play();
+                        boostSound.Play();
                     }
                 }
                 else
                 {
                     // Stop the boost particle effect when not boosting.
-                    if (boostParticles != null && boostParticles.isPlaying)
+                    if (boostParticles && boostParticles.isPlaying)
                     {
                         boostParticles.Stop();
+                        boostSound.Stop();
                     }
                 
                     // Reset the boost hold timer when not boosting.
@@ -145,7 +141,7 @@ namespace Player_Scripts
                 }
 
                 // Regenerate boost when boost button is not held.
-                if (!_boostAction.IsPressed())
+                if (!isBoosting)
                 {
                     _boostRemaining = Mathf.Min(_boostRemaining + boostRegenRate * Time.fixedDeltaTime, maxBoostTime);
                     if (_boostRemaining > 0)
