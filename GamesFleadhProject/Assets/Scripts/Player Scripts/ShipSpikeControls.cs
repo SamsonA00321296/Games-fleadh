@@ -29,6 +29,8 @@ namespace Player_Scripts
         // Ship Transform
         Transform shipTransform;
 
+        public AudioSource ChainSound;
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
@@ -59,6 +61,7 @@ namespace Player_Scripts
             if (canSpike)
             {
                 Instantiate(SpikePrefab, gameObject.transform.parent);
+                ChainSound.Play();
                 spikeAndChain = parent.transform.GetChild(1).gameObject;
 
                 spikeOut = true;
@@ -68,6 +71,7 @@ namespace Player_Scripts
             else if (spikeOut)
             {
                 spikeOut = false;
+                ChainSound.Stop();
                 StartCoroutine(DestroySpike());
             }
         

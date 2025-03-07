@@ -4,9 +4,11 @@ public class ScoreTransfer : MonoBehaviour
 {
     public ScoreNumber t1num1;
     public ScoreNumber t1num2;
+    public ScoreNumber t1num3;
     
     public ScoreNumber t2num1;
     public ScoreNumber t2num2;
+    public ScoreNumber t2num3;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,8 +25,10 @@ public class ScoreTransfer : MonoBehaviour
     {
         t1num1.score = score1;
         t1num2.score = score1;
+        t1num3.score = score1;
         
         t2num1.score = score2;
         t2num2.score = score2;
+        t2num3.score = score2;
     }
 }
