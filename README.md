@@ -1,5 +1,5 @@
 This project contains the combined work of the following people:
-Carl Byrne, Peter Conroy, Sean Daniels, Samson Glover & Sam McAulay
+Carl Byrne, Peter Conroy, Sean Daniel, Samson Glover & Sam McAulay
 
 Work breakdown as follows:
 
@@ -13,9 +13,13 @@ Peter Conroy:
 1:
 etc:
 
-Sean Daniels:
-1:
-etc:
+Sean Daniel:
+1: Score system scripting with value indicator prefab 
+2: Timer scripting
+3: Title Scene creation and Title Screen movement scripting
+4: Score and timer system implementation into full game
+5: Endscreen scripting and implementation
+6: Spritework of moons, HUD, Title screen and chain
 
 Samson Glover:
 1:
