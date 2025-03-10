@@ -22,5 +22,9 @@ Samson Glover:
 etc:
 
 Sam McAulay:
-1:
-etc
+1: Contributions to player mechanics
+2: joint collision attatchment
+3: world border
+4: minimap
+5: screen borders
+6: Contributions to timer display
