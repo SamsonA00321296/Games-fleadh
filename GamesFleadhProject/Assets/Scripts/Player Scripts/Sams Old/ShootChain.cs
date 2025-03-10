@@ -52,7 +52,7 @@ namespace Player_Scripts
 
             // Spawn hook
             Vector2 hookSpawnPos = player.position + player.transform.up * 0.5f;
-            _hookInstance = Instantiate(hookPrefab, hookSpawnPos, Quaternion.identity, this.transform);
+            _hookInstance = Instantiate(hookPrefab, hookSpawnPos, Quaternion.identity);
             _hookRb = _hookInstance.GetComponent<Rigidbody2D>();
 
             _hookRb.linearVelocity = player.transform.up * hookSpeed;
@@ -67,7 +67,7 @@ namespace Player_Scripts
                 if (!_hookInstance) break;
 
                 Vector2 chainSpawnPos = _hookInstance.transform.position - player.transform.up * linkSpacing;
-                GameObject newLink = Instantiate(chainPrefab, chainSpawnPos, Quaternion.identity, this.transform);
+                GameObject newLink = Instantiate(chainPrefab, chainSpawnPos, Quaternion.identity);
 
                 _chainLinks.Add(newLink); // Store the link
 

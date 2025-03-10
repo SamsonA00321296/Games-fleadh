@@ -1,121 +1,227 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
-public class ShipControls : MonoBehaviour
+namespace Player_Scripts
 {
-    // Normalized vector representing the direction a player should be facing
-    Vector2 normalizedDirection;
-
-    // Parent Rigidbody2D and Transform
-    Rigidbody2D shipRigidbody;
-    Transform parentTransform;
-
-    // Deadzone for ship movement
-    public float deadZone = 0.1f;
-
-    // Ship's thrust force and boost multiplier
-    public float thrustForce = 5f;
-    public float boostMultiplier = 1.5f;
-    public bool canBoost = true;
-
-    // Input actions
-    InputAction flyAction;
-    InputAction boostAction;
-
-    // Expected Z rotation based on player input
-    float zRotation = 0f;
-
-    // Additional rotation offset for shaking effect
-    float shakeOffset = 0f;
-
-    // Used to disable movement when hit by a bullet
-    public bool isShot;
-
-    // Team assignment to avoid friendly fire
-    public int teamID;
-
-    // Shake parameters
-    public float shakeDuration = 3f; // Shake for one second
-    public float shakeMagnitude = 10f; // Maximum degrees to shake
-    public float shakeFrequency = 20f; // How fast to oscillate
-
-    void Start()
+    public class ShipControls : MonoBehaviour
     {
-        parentTransform = GetComponent<Transform>();
-        shipRigidbody = GetComponent<Rigidbody2D>();
+        // Normalized vector representing the direction a player should be facing.
+        Vector2 _normalizedDirection;
 
-        // Find the action for flying and boosting
-        flyAction = InputSystem.actions.FindAction("Fly");
-        boostAction = InputSystem.actions.FindAction("BoostFly");
-    }
+        // Parent Rigidbody2D and Transform.
+        Rigidbody2D _shipRigidbody;
+        Transform _parentTransform;
 
-    void Update()
-    {
-        // Apply the base rotation plus any shake offset.
-        parentTransform.rotation = Quaternion.Euler(new Vector3(0, 0, zRotation + shakeOffset));
-    }
+        // Deadzone for ship movement.
+        public float deadZone = 0.1f;
 
-    void FixedUpdate()
-    {
-        // Only apply movement forces if not shot.
-        if (!isShot)
+        // Ship's thrust force and boost multiplier.
+        public float thrustForce = 5f;
+        public float boostMultiplier = 1.5f;
+        public bool canBoost = true;
+
+        // Expected Z rotation based on player input.
+        float _zRotation;
+
+        // Additional rotation offset for shaking effect.
+        float _shakeOffset;
+
+        // Used to disable movement when hit by a bullet.
+        public bool isShot;
+
+        // To save if the players are flying/boosting
+        bool isFlying = false;
+        bool isBoosting = false;
+
+        // Team assignment to avoid friendly fire.
+        public int teamID;
+
+        // Shake parameters.
+        public float shakeDuration = 3f; // Shake for three seconds.
+        public float shakeMagnitude = 10f; // Maximum degrees to shake.
+        public float shakeFrequency = 20f; // How fast to oscillate.
+
+        // --- Boost Meter Variables ---
+        [Header("Boost Settings")]
+        public float maxBoostTime = 5f;       // Maximum boost capacity (seconds).
+        public float boostRegenRate = 0.5f;   // Boost regeneration rate per second.
+
+        float _boostRemaining;    // Current boost energy.
+        float _boostHoldTime;     // How long boost button has been held continuously.
+
+        // --- UI Element for Boost Bar ---
+        [Header("Boost UI")]
+        public Image boostBarImage;
+
+        // --- Boost Particle System ---
+        [Header("Boost Particle System")]
+        // Reference to a ParticleSystem that plays when boosting.
+        public ParticleSystem boostParticles;
+        
+        public AudioSource boostSound;
+
+        void Start()
         {
-            if (boostAction.IsPressed() && canBoost)
-            {
-                shipRigidbody.AddForce(transform.up * thrustForce * boostMultiplier);
-            }
-            else if (flyAction.IsPressed())
-            {
-                shipRigidbody.AddForce(transform.up * thrustForce);
-            }
+            _parentTransform = transform;
+            _shipRigidbody = GetComponent<Rigidbody2D>();
+
+            // Initialize boost values.
+            _boostRemaining = maxBoostTime;
+            _boostHoldTime = 0f;
+
+            // Ensure boost particles are not playing initially.
+            if (boostParticles != null && boostParticles.isPlaying)
+                boostParticles.Stop();
         }
-    }
 
-    // Update the ship's facing direction based on input.
-    void OnMove(InputValue directionLooking)
-    {
-        Vector2 direction = directionLooking.Get<Vector2>();
-        if (direction.magnitude > deadZone)
+        void Update()
         {
-            normalizedDirection = direction.normalized;
-            // Calculate the angle between the positive Y-axis and the direction vector.
-            zRotation = Vector2.SignedAngle(Vector2.up, normalizedDirection);
+            // Ensure that boostRemaining does not exceed maxBoostTime.
+            _boostRemaining = Mathf.Min(_boostRemaining, maxBoostTime);
+
+            // Update the boost bar UI.
+            if (boostBarImage)
+            {
+                boostBarImage.fillAmount = _boostRemaining / maxBoostTime;
+            }
+
+            // Apply the base rotation plus any shake offset.
+            _parentTransform.rotation = Quaternion.Euler(new Vector3(0, 0, _zRotation + _shakeOffset));
         }
-    }
 
-    // When colliding with a bullet, disable movement and start the shake effect.
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Bullet"))
+        void FixedUpdate()
         {
+            // Only apply movement forces if not shot.
             if (!isShot)
             {
-                StartCoroutine(HitCooldown());
+                // Check if boost is active.
+                if (isBoosting && canBoost && _boostRemaining > 0)
+                {
+                    //Debug.Log("is boosting");
+                    // Increase how long the boost button has been held.
+                    _boostHoldTime += Time.fixedDeltaTime;
+                    // Drain rate increases the longer boost is held.
+                    float drainRate = 1f + _boostHoldTime;
+                    _boostRemaining -= drainRate * Time.fixedDeltaTime;
+                    if (_boostRemaining <= 0)
+                    {
+                        _boostRemaining = 0;
+                        canBoost = false;
+                    }
                 
+                    // Apply boost force.
+                    _shipRigidbody.AddForce(transform.up * (thrustForce * boostMultiplier));
+                
+                    // Start the particle effect if not already playing.
+                    if (boostParticles && !boostParticles.isPlaying)
+                    {
+                        boostParticles.Play();
+                        boostSound.Play();
+                    }
+                }
+                else
+                {
+                    // Stop the boost particle effect when not boosting.
+                    if (boostParticles && boostParticles.isPlaying)
+                    {
+                        boostParticles.Stop();
+                        boostSound.Stop();
+                    }
+                
+                    // Reset the boost hold timer when not boosting.
+                    _boostHoldTime = 0f;
+                
+                    // Apply normal thrust if the fly action is pressed.
+                    if (isFlying)
+                    {
+                        _shipRigidbody.AddForce(transform.up * thrustForce);
+                    }
+                }
+
+                // Regenerate boost when boost button is not held.
+                if (!isBoosting)
+                {
+                    _boostRemaining = Mathf.Min(_boostRemaining + boostRegenRate * Time.fixedDeltaTime, maxBoostTime);
+                    if (_boostRemaining > 0)
+                        canBoost = true;
+                }
             }
         }
-    }
 
-    // Coroutine that disables movement for 3 seconds and shakes the ship for the first second.
-    private IEnumerator HitCooldown()
-    {
-        isShot = true;
-        float elapsed = 0f;
-
-        // Shake the ship for shakeDuration seconds.
-        while (elapsed < shakeDuration)
+        // Update the ship's facing direction based on input.
+        void OnMove(InputValue directionLooking)
         {
-            // Using a sine wave to oscillate the shake offset.
-            shakeOffset = Mathf.Sin(elapsed * shakeFrequency) * shakeMagnitude;
-            elapsed += Time.fixedDeltaTime;
-            yield return new WaitForFixedUpdate();
+            Vector2 direction = directionLooking.Get<Vector2>();
+            if (direction.magnitude > deadZone)
+            {
+                _normalizedDirection = direction.normalized;
+                // Calculate the angle between the positive Y-axis and the direction vector.
+                _zRotation = Vector2.SignedAngle(Vector2.up, _normalizedDirection);
+            }
         }
-        // Reset the shake offset.
-        shakeOffset = 0f;
 
-        // Wait out the remainder of the 3-second cooldown.
-        yield return new WaitForSeconds(3f - shakeDuration);
-        isShot = false;
+        // When colliding with a bullet, disable movement and start the shake effect.
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Bullet"))
+            {
+                if (!isShot)
+                {
+                    StartCoroutine(HitCooldown());
+                }
+            }
+        }
+
+        // Coroutine that disables movement for 3 seconds and shakes the ship for the first shakeDuration seconds.
+        private IEnumerator HitCooldown()
+        {
+            isShot = true;
+            float elapsed = 0f;
+
+            // Shake the ship for shakeDuration seconds.
+            while (elapsed < shakeDuration)
+            {
+                // Oscillate the shake offset with a sine wave.
+                _shakeOffset = Mathf.Sin(elapsed * shakeFrequency) * shakeMagnitude;
+                elapsed += Time.fixedDeltaTime;
+                yield return new WaitForFixedUpdate();
+            }
+            // Reset the shake offset.
+            _shakeOffset = 0f;
+
+            // Wait out the remainder of the 3-second cooldown.
+            yield return new WaitForSeconds(3f - shakeDuration);
+            isShot = false;
+        }
+
+        // VERY JANKY
+        // toggles between the ship flying and the ship not flying
+        // everytime the fly button is pressed & depressed
+        void OnFly(InputValue buttonPressed)
+        {
+            if(!isFlying)
+            {
+                isFlying = true;
+            }
+            else
+            {
+                isFlying = false;
+            }
+        }
+
+        // also janky but still works???
+        void OnBoostFly()
+        {
+            if(!isBoosting)
+            {
+                isBoosting = true;
+            }
+            else
+            {
+                isBoosting = false;
+            }
+        }
     }
 }

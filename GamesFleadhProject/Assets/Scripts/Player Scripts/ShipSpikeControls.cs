@@ -15,8 +15,8 @@ namespace Player_Scripts
         public GameObject SpikePrefab;
         
         // Is there currently a spike?
-        bool spikeOut = false;
-        bool canSpike = true;
+        public bool spikeOut = false;
+        bool canSpike = false;
 
         // Parent Gameobject
         GameObject parent;
@@ -29,12 +29,16 @@ namespace Player_Scripts
         // Ship Transform
         Transform shipTransform;
 
+        public AudioSource ChainSound;
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             parent = gameObject.transform.parent.gameObject;
             ship = parent.transform.GetChild(0).gameObject;
             shipTransform = ship.transform;
+
+            StartCoroutine(StartUpSpike());
         }
 
         // Update is called once per frame
@@ -57,6 +61,7 @@ namespace Player_Scripts
             if (canSpike)
             {
                 Instantiate(SpikePrefab, gameObject.transform.parent);
+                ChainSound.Play();
                 spikeAndChain = parent.transform.GetChild(1).gameObject;
 
                 spikeOut = true;
@@ -66,17 +71,24 @@ namespace Player_Scripts
             else if (spikeOut)
             {
                 spikeOut = false;
+                ChainSound.Stop();
                 StartCoroutine(DestroySpike());
             }
         
         }
 
         // Destroys the spike and chain after chain-cooldown time
-        IEnumerator DestroySpike()
+        public IEnumerator DestroySpike()
         {
             yield return new WaitForSeconds(chainCooldown);
             canSpike = true;
             Destroy(spikeAndChain);
+        }
+
+        IEnumerator StartUpSpike()
+        {
+            canSpike = true;
+            yield return new WaitForSeconds(0.5f);
         }
         
         
