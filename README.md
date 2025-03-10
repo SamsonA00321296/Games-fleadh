@@ -10,8 +10,10 @@ Carl Byrne:
 4: Music and sound production
 
 Peter Conroy:
-1:
-etc:
+1: Sprite work of home planets, ships, backgrounds and lettering
+2: Implementation of multiplayer
+3: Camera functions and scripts
+4: Edited the Trailer
 
 Seán Daniel:
 1: Score system scripting with value indicator prefab 
