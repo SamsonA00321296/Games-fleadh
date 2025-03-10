@@ -1,5 +1,5 @@
 This project contains the combined work of the following people:
-Carl Byrne, Peter Conroy, Sean Daniel, Samson Glover & Sam McAulay
+Carl Byrne, Peter Conroy, Seán Daniel, Samson Glover & Sam McAulay
 
 Work breakdown as follows:
 
@@ -13,7 +13,7 @@ Peter Conroy:
 1:
 etc:
 
-Sean Daniel:
+Seán Daniel:
 1: Score system scripting with value indicator prefab 
 2: Timer scripting
 3: Title Scene creation and Title Screen movement scripting
