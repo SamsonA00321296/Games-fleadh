@@ -28,7 +28,7 @@ Samson Glover:
 2: Player controls (Aiming, flying, shooting spike)
 3: Spike & chain prefab and logic
 4: General bug-fixing and issue resolution throughout the project
-5: Helped with setting up multiplayer
+5: Assisted with creation, testing and implementation of  split-screen multiplayer
 
 Sam McAulay:
 1: Contributions to player mechanics
