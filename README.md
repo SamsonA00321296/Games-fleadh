@@ -24,8 +24,11 @@ Seán Daniel:
 6: Spritework of moons, HUD, Title screen and chain
 
 Samson Glover:
-1:
-etc:
+1: Normal mapping and configuring lighting
+2: Player controls (Aiming, flying, shooting spike)
+3: Spike & chain prefab and logic
+4: Lots of general bug-fixing throughout the project
+5: Helped with setting up multiplayer
 
 Sam McAulay:
 1: Contributions to player mechanics
