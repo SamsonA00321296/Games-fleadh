@@ -617,6 +617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Holder
       objectReference: {fileID: 0}
+    - target: {fileID: 1219862045107720735, guid: 5a0ae8bb6d3a7834083b30d62492a8ef, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: b17cae5383609af408871cd24a9ad0a3, type: 2}
     - target: {fileID: 2503667377635036693, guid: 5a0ae8bb6d3a7834083b30d62492a8ef, type: 3}
       propertyPath: boostSound
       value: 
@@ -633,6 +637,10 @@ PrefabInstance:
       propertyPath: laserSound
       value: 
       objectReference: {fileID: 4168465816273680520}
+    - target: {fileID: 4264280417422969259, guid: 5a0ae8bb6d3a7834083b30d62492a8ef, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4404143592300550754, guid: 5a0ae8bb6d3a7834083b30d62492a8ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
