@@ -7,7 +7,7 @@ namespace Game_Managers
     public class BorderToggle : MonoBehaviour
     {
         public Image border;
-        public playerCounter counter;
+        public PlayerCounter counter;
 
         private void Update()
         {

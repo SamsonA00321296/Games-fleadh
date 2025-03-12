@@ -6,10 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TitleScreen.unity
+    path: Assets/Scenes/Working scenes/TitleScreen.unity
     guid: cdf96adbdd654b94990c3c8d029056bc
   - enabled: 1
-    path: Assets/Scenes/MoonHaulers.unity
+    path: Assets/Scenes/Working scenes/Lobby.unity
+    guid: 5df40799fe76cfb4d83ce7ad3b7dc7e3
+  - enabled: 1
+    path: Assets/Scenes/Working scenes/MoonHaulers.unity
     guid: 9607496697cfb11459a490758c1c20db
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9c3f3593da6b07d44a84b1cbcbabca61, type: 2}
