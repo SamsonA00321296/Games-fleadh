@@ -11,6 +11,7 @@ TagManager:
   - die
   - HomeRobot
   - HomePlant
+  - Placeholder
   layers:
   - Default
   - TransparentFX

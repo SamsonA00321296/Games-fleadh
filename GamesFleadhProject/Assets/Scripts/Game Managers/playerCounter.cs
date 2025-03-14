@@ -1,28 +1,51 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game_Managers
 {
     public class PlayerCounter : MonoBehaviour
     {
-        public static PlayerCounter Instance { get; private set; }
         public int playersIngame;
+        
+        [Header("Press A to Join UI")]
+        [SerializeField] private GameObject[] pressAObjects;
+
+        [Header("Player Sprites")]
+        [SerializeField] private GameObject[] playerSprites;
 
         private void Awake()
         {
-            if (Instance == null)
+            // Initialize UI states
+            for (int i = 0; i < pressAObjects.Length; i++)
             {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
+                if (pressAObjects[i] != null) 
+                    pressAObjects[i].SetActive(true);
             }
-            else
+            for (int i = 0; i < playerSprites.Length; i++)
             {
-                Destroy(gameObject);
+                if (playerSprites[i] != null) 
+                    playerSprites[i].SetActive(false);
             }
         }
 
-        void OnPlayerJoined()
+        void OnPlayerJoined(PlayerInput playerInput)
         {
-            playersIngame++;
+            playersIngame++; // Increment total players
+
+            int index = playerInput.playerIndex; 
+            // The first player is index 0, second is 1, etc.
+
+            // Hide "Press A to Join" for that index
+            if (index < pressAObjects.Length && pressAObjects[index] != null)
+            {
+                pressAObjects[index].SetActive(false);
+            }
+
+            // Show the corresponding player sprite
+            if (index < playerSprites.Length && playerSprites[index] != null)
+            {
+                playerSprites[index].SetActive(true);
+            }
         }
     }
 }

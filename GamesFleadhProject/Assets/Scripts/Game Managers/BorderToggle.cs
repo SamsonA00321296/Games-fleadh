@@ -6,18 +6,33 @@ namespace Game_Managers
 {
     public class BorderToggle : MonoBehaviour
     {
-        public Image border;
-        public PlayerCounter counter;
+        [SerializeField] private Image border;
+        [SerializeField] private PlayerCounter counter;
+
+        [SerializeField] private Image p3;
+        [SerializeField] private Image p4;
 
         private void Update()
         {
             if (counter.playersIngame > 2)
             {
                 border.enabled = true;
+                if (counter.playersIngame == 3)
+                {
+                    p3.enabled = true;
+                    p4.enabled = false;
+                }
+                else
+                {
+                    p3.enabled = true;
+                    p4.enabled = true;
+                }
             }
             else
             {
                 border.enabled = false;
+                p3.enabled = false;
+                p4.enabled = false;
             }
         }
     }
