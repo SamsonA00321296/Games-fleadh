@@ -457,7 +457,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -613,6 +613,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8515559720069997167}
     m_Modifications:
+    - target: {fileID: 98781049143019296, guid: 5a0ae8bb6d3a7834083b30d62492a8ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 915463742998993296, guid: 5a0ae8bb6d3a7834083b30d62492a8ef, type: 3}
       propertyPath: m_Name
       value: Player Holder
@@ -685,6 +689,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 3137835147356159662}
+    - target: {fileID: 6491853348771506116, guid: 5a0ae8bb6d3a7834083b30d62492a8ef, type: 3}
+      propertyPath: isRacer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760663895223696588, guid: 5a0ae8bb6d3a7834083b30d62492a8ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8751530723744121012, guid: 5a0ae8bb6d3a7834083b30d62492a8ef, type: 3}
       propertyPath: m_Layer
       value: 6

@@ -26,6 +26,9 @@ public class TeamController : MonoBehaviour
     // The ship controls script
     ShipControls shipControls;
 
+    // Is the ship for the racer gamemode?
+    public bool isRacer = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     void Start()
@@ -49,12 +52,17 @@ public class TeamController : MonoBehaviour
             homeplanet = GameObject.FindGameObjectWithTag("HomeRobot");
         }
 
-        //Gets an array of the subArrows
-        arrowRenderes = arrow.GetComponentsInChildren<Transform>();
-        arrowRenderes[teamNum+1].gameObject.SetActive(false);
+        if(!isRacer)
+        {
+            //Gets an array of the subArrows
+            arrowRenderes = arrow.GetComponentsInChildren<Transform>();
+            arrowRenderes[teamNum + 1].gameObject.SetActive(false);
+        }
+        
 
-        //Debug.Log(homeplanet);
-        shipControls.teamID = teamNum;
+
+            //Debug.Log(homeplanet);
+            shipControls.teamID = teamNum;
 
         // Teleports ship to their homeplanet on creation
         gameObject.transform.position = homeplanet.transform.position;

@@ -5574,6 +5574,7 @@ MonoBehaviour:
   boostRegenRate: 0.25
   boostBarImage: {fileID: 8221037321702985747}
   boostParticles: {fileID: 3395854773548779646}
+  boostSound: {fileID: 0}
 --- !u!114 &5985610826427977080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5620,6 +5621,7 @@ MonoBehaviour:
   chainRetractSpeed: 7
   SpikePrefab: {fileID: 2544930820386945846, guid: 6ed407efd44bd164b9d903b96e39e412, type: 3}
   spikeOut: 0
+  ChainSound: {fileID: 0}
 --- !u!114 &3860353091721704040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5636,6 +5638,7 @@ MonoBehaviour:
   bulletSpawnPoint1: {fileID: 1154078592067740711}
   bulletSpawnPoint2: {fileID: 241846616147922919}
   bulletSpeed: 20
+  laserSound: {fileID: 0}
 --- !u!58 &4264280417422969259
 CircleCollider2D:
   m_ObjectHideFlags: 0

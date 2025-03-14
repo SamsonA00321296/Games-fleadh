@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WinnerDecide : MonoBehaviour
+public class WinnerDecide: MonoBehaviour
 {
     public ScoreSystem planet1;
     public ScoreSystem planet2;

@@ -59,11 +59,12 @@ namespace Player_Scripts
         [Header("Boost Particle System")]
         // Reference to a ParticleSystem that plays when boosting.
         public ParticleSystem boostParticles;
-        
+
         public AudioSource boostSound;
 
         void Start()
-        {
+        { 
+
             _parentTransform = transform;
             _shipRigidbody = GetComponent<Rigidbody2D>();
 
@@ -110,10 +111,10 @@ namespace Player_Scripts
                         _boostRemaining = 0;
                         canBoost = false;
                     }
-                
+
                     // Apply boost force.
                     _shipRigidbody.AddForce(transform.up * (thrustForce * boostMultiplier));
-                
+
                     // Start the particle effect if not already playing.
                     if (boostParticles && !boostParticles.isPlaying)
                     {
@@ -129,10 +130,10 @@ namespace Player_Scripts
                         boostParticles.Stop();
                         boostSound.Stop();
                     }
-                
+
                     // Reset the boost hold timer when not boosting.
                     _boostHoldTime = 0f;
-                
+
                     // Apply normal thrust if the fly action is pressed.
                     if (isFlying)
                     {
@@ -201,7 +202,7 @@ namespace Player_Scripts
         // everytime the fly button is pressed & depressed
         void OnFly(InputValue buttonPressed)
         {
-            if(!isFlying)
+            if (!isFlying)
             {
                 isFlying = true;
             }
@@ -214,7 +215,7 @@ namespace Player_Scripts
         // also janky but still works???
         void OnBoostFly()
         {
-            if(!isBoosting)
+            if (!isBoosting)
             {
                 isBoosting = true;
             }
