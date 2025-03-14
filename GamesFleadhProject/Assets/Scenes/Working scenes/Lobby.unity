@@ -3367,10 +3367,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.14179105
+    y: 0.021558871
+    width: 0.7164179
+    height: 0.95522386
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -3637,9 +3637,57 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
+      propertyPath: m_JoinBehavior
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
       propertyPath: m_PlayerPrefab
       value: 
       objectReference: {fileID: 1039406395608481671, guid: e0305c3e47c309541a33aa98b1a03a55, type: 3}
+    - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_Name
+      value: Join
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_Flags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 96af273b-0036-4c86-b5dc-9a11cc39c437
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Id
+      value: 07f33263-e9cb-464a-a436-36c7b0b85fac
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/space
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Gamepad>/buttonSouth
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Join
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Join
+      objectReference: {fileID: 0}
     - target: {fileID: 7307612311718116076, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
       propertyPath: playerSprites.Array.size
       value: 4
