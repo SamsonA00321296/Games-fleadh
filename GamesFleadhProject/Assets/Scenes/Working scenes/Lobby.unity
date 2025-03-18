@@ -3589,10 +3589,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.22971548
-    y: 0.14044943
-    width: 0.53951526
-    height: 0.71910113
+    x: 0.1520362
+    y: 0.036977492
+    width: 0.69502264
+    height: 0.926045
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -3884,7 +3884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
       propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
       propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Id
@@ -3892,7 +3892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
       propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Id
-      value: 07f33263-e9cb-464a-a436-36c7b0b85fac
+      value: e877d9e5-b372-4255-bf6b-9fc5e9951765
       objectReference: {fileID: 0}
     - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
       propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Path
@@ -3900,7 +3900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
       propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Path
-      value: <Gamepad>/buttonSouth
+      value: <Keyboard>/space
       objectReference: {fileID: 0}
     - target: {fileID: 4920964934057546925, guid: 059ef287720473040a0a3737c4a4b353, type: 3}
       propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Action
