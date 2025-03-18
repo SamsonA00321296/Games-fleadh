@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,10 +13,10 @@ namespace Game_Managers
 
         private void Update()
         {
-            if (counter.playersIngame > 2)
+            if (counter.playersIngame > 4)
             {
                 border.enabled = true;
-                if (counter.playersIngame == 3)
+                if (counter.playersIngame == 6)
                 {
                     p3.enabled = true;
                     p4.enabled = false;

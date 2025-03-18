@@ -5394,6 +5394,8 @@ MonoBehaviour:
   - {fileID: 1526731998}
   - {fileID: 899418959}
   - {fileID: 738997243}
+  greenSprite: {fileID: 21300000, guid: 457d84321734f8448879977774bed528, type: 3}
+  purpleSprite: {fileID: 21300000, guid: ff4b276ad93348349b5cfa6360781865, type: 3}
 --- !u!4 &2092196275
 Transform:
   m_ObjectHideFlags: 0

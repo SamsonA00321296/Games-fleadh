@@ -14,6 +14,11 @@ namespace Game_Managers
         [Tooltip("Assign empty GameObjects as spawn points. If not set, players keep their placeholder position.")]
         [SerializeField] private Transform[] spawnPoints;
 
+        [Header("Alternate Sprites")]
+        [Tooltip("Green sprite for first, third, etc. players; Purple sprite for second, fourth, etc.")]
+        [SerializeField] private Sprite greenSprite;
+        [SerializeField] private Sprite purpleSprite;
+
         private void Start()
         {
             // Find all placeholder objects (spawned in the Lobby) by tag.
@@ -61,6 +66,13 @@ namespace Game_Managers
                 newPlayer.transform.position = spawn.position;
                 newPlayer.transform.rotation = spawn.rotation;
                 newPlayers.Add(newPlayer);
+
+                // Alternate sprites: even-indexed players get green, odd-indexed players get purple.
+                SpriteRenderer sr = newPlayer.GetComponentInChildren<SpriteRenderer>();
+                if (sr != null)
+                {
+                    sr.sprite = (i % 2 == 0) ? greenSprite : purpleSprite;
+                }
 
                 // Destroy the placeholder object.
                 Destroy(placeholder);
