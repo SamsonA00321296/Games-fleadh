@@ -37,3 +37,4 @@ Sam McAulay:
 4: minimap
 5: screen borders
 6: Contributions to timer display
+7: lobby screen and join mechanics
