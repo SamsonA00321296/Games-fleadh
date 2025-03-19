@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MoonHaulers.unity
     guid: 9607496697cfb11459a490758c1c20db
+  - enabled: 1
+    path: Assets/Scenes/RaceScene.unity
+    guid: 963b3ce41f1091648b39dc6c7c2d65ec
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9c3f3593da6b07d44a84b1cbcbabca61, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

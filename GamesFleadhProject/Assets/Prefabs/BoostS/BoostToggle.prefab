@@ -96,8 +96,9 @@ GameObject:
   - component: {fileID: 5672128350808819252}
   - component: {fileID: 4602557952685808589}
   - component: {fileID: 7398192759841719193}
+  - component: {fileID: 8188767875663532952}
   m_Layer: 0
-  m_Name: BoostAngle
+  m_Name: BoostToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +164,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1158105677375246987, guid: 60e26409c87cacd47af48c1005399bb1, type: 3}
+  m_Sprite: {fileID: 3093924867156305784, guid: e6037865e2afc4940977a5fcad783bdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -234,9 +235,21 @@ AreaEffector2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_UseGlobalAngle: 0
-  m_ForceAngle: 45
+  m_ForceAngle: 0
   m_ForceMagnitude: 50
   m_ForceVariation: 0
   m_ForceTarget: 0
   m_Drag: 0
   m_AngularDrag: 0
+--- !u!114 &8188767875663532952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6788374883527017271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17dc08d604a65ee4481889f20e976c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
