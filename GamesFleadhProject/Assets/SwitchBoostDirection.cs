@@ -16,7 +16,7 @@ public class SwitchBoostDirection : MonoBehaviour
         lastNumber /= 2;
         lastNumber += 2;
 
-        Debug.Log(lastNumber);
+        //Debug.Log(lastNumber);
 
         //Debug.Log(lastDigit);
 
