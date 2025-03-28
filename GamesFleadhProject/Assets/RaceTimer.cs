@@ -17,6 +17,7 @@ public class RaceTimer : MonoBehaviour
     private bool countingDown = true;
 
     public bool timerActive = false;
+    public bool gameStarted = false;
 
     private GameObject[] playerList;
 
@@ -62,10 +63,10 @@ public class RaceTimer : MonoBehaviour
             // Add new players to the list
             playerList = GameObject.FindGameObjectsWithTag("Player");
 
-            if (playerList.Length != 0)
+            if (playerList.Length != 0 && ! gameStarted)
             {
                 timerActive = true;
-
+                gameStarted = true;
                 
             }
 
@@ -109,6 +110,17 @@ public class RaceTimer : MonoBehaviour
 
             ShipControls shipControls = player.GetComponent<ShipControls>();
             shipControls.thrustForce = 30;
+        }
+    }
+
+    public void EndRace()
+    {
+        foreach (GameObject player in playerList)
+        {
+            Debug.Log("Revoking Player Thrust");
+
+            ShipControls shipControls = player.GetComponent<ShipControls>();
+            shipControls.thrustForce = 0;
         }
     }
 }

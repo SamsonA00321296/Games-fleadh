@@ -18,7 +18,7 @@ public class TeamController : MonoBehaviour
     int playerIndex;
 
     // The team id
-    int teamNum;
+    public int teamNum;
 
     // Teams Home Planet
     GameObject homeplanet;
