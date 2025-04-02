@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class RaceTimer : MonoBehaviour
 {
+    public AudioClip finalBeep;
+    public AudioSource audioSource;
+
     public GameObject num1;
     public GameObject num2;
     public GameObject num3;
@@ -20,6 +23,11 @@ public class RaceTimer : MonoBehaviour
     public bool gameStarted = false;
 
     private GameObject[] playerList;
+
+    private bool firstBeep = false;
+    private bool secondBeep = false;
+    private bool thirdBeep = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,9 +48,29 @@ public class RaceTimer : MonoBehaviour
                 // Decrement Timer
                 seconds -= Time.deltaTime;
 
+                if (Mathf.FloorToInt(seconds) == 1 && !firstBeep )
+                {
+                    firstBeep = true;
+                    audioSource.Play();
+                }
+                else if(Mathf.FloorToInt(seconds) == 2 && !secondBeep)
+                {
+                    audioSource.Play();
+                    secondBeep = true;
+                }
+                else if (Mathf.FloorToInt(seconds) == 0 && !thirdBeep)
+                {
+                    thirdBeep = true;
+                    audioSource.Play();
+                }
+
                 // If timer = 0, start counting up and start race
                 if (seconds <= 0)
                 {
+                    audioSource.clip = finalBeep;
+
+                    audioSource.Play();
+
                     seconds = 0;
                     countingDown = false;
 

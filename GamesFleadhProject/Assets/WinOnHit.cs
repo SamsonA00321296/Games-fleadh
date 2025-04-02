@@ -17,6 +17,7 @@ public class WinOnHit : MonoBehaviour
     public RaceTimer raceTimer;
     public DisplayTeam displayTeam;
 
+    public AudioSource audioSource;
     void Start()
     {
         
@@ -36,6 +37,7 @@ public class WinOnHit : MonoBehaviour
             TeamController teamController = collision.gameObject.GetComponent<TeamController>();
             winnerTeamNum = teamController.teamNum;
 
+            audioSource.Play();
 
             DisplayWinner(winnerTeamNum);
         }
