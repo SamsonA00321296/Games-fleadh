@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      backgroundMoonhaulers_0: 5853268487177279640
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
