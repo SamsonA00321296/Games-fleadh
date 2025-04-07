@@ -11,6 +11,10 @@ TagManager:
   - die
   - HomeRobot
   - HomePlant
+  - Sun
+  - Spawner
+  - BlackHole
+  - restartButton
   layers:
   - Default
   - TransparentFX
